@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+/**
+* ! Resetting general styles
+**/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+}
+
+:root{
+    --main-bg-color : hsl(222, 26%, 31%);
+    --keypad-bg-color : hsl(223, 31%, 20%);
+    --screen-bg-color : hsl(224, 36%, 15%);
+
+    /* Delete , Reset */
+    --key-bg-color : hsl(225, 21%, 49%);
+    --key-shadow-color: hsl(224, 28%, 35%);
+
+    /* Equal to , Toggle */
+    --toggle-bg-color:hsl(6, 63%, 50%);
+    --shadow-bg-color:hsl(6, 70%, 34%);
+
+    /* Simple Keys */
+    --simplekey-bg-color: hsl(30, 25%, 89%);
+    --simplekey-shadow-color :hsl(28, 16%, 65%);
+
+    /* Text */
+    --simplekey-text-color : hsl(221, 14%, 31%);
+    --screen-text-color: #ffffff;
+}
+
+body{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 32px;
+}
+
+.container{
+    /* border: 2px solid red; */
+    background-color: var(--main-bg-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator{
+    /* border: 2px solid black; */
+    max-width: 360px;
+    display: grid;
+    grid-template-rows: 50px 60px 280px;
+    gap: 10px;
+}
+
+/**
+* ! Heading Styles
+**/
+.calculator .heading{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: var(--screen-text-color);
+}
+
+/**
+* ! Theme Switcher Button Styles
+**/
+.theme-switcher{
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    gap: 20px;
+}
+
+.theme-switcher p{
+    font-size: 0.7rem;
+}
+
+.theme-btn{
+    background-color:var(--keypad-bg-color);
+    padding: 3px;
+    width: 52px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#theme1,#theme2,#theme3{
+    border-radius: 50%;
+    height: 12px ;
+    width: 12px;
+    position: relative; 
+    cursor: pointer;
+}
+
+#theme1{
+    background-color: var(--toggle-bg-color);
+}
+.num{
+    position: absolute;
+    top: -20px;
+}
+/**
+* ! Screen Styles
+**/
+.calculator .screen-container{
+    border-radius: 10px;    
+}
+
+.calculator .screen-container input{
+    background-color: var(--screen-bg-color);
+    border-radius: 10px;
+    caret-color: transparent;
+    padding: 0 10px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: right;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--screen-text-color);
+}
+
+.calculator .screen-container input:focus{
+    outline: none;
+}
+
+/**
+* ! Keypad Styles
+**/
+
+.calculator .keypad{
+    /* border: 2px solid green; */
+    background-color: var(--keypad-bg-color);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.keypad .row{
+    /* border: 2px solid pink; */
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/**
+* ! Button Styles
+**/
+
+.btn , #deleteBtn , #resetBtn, #calculateBtn {
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    text-align: center;
+    padding: 9px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn{
+    background-color: var(--simplekey-bg-color);
+    color:var(--simplekey-text-color);
+    border-bottom: 3px solid var(--simplekey-shadow-color);
+}
+
+#deleteBtn,#resetBtn{
+    background-color: var(--key-bg-color);
+    color: #ffffff;
+    border-bottom: 3px solid var(--key-shadow-color);
+    font-size: 1rem;
+}
+
+#calculateBtn{
+    background-color: var(--toggle-bg-color);
+    color: #ffffff;
+    border-bottom: 3px solid var(--shadow-bg-color);
+}
+
+@media(max-width:360px){
+    .container{
+        padding: 0 10px;
+        align-items: flex-start;
+    }
+    .calculator{
+        grid-template-rows: 20vh 20vh 50vh;
+    }
+}
